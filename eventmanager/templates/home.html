@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    {% for event in events %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <small class="text-muted">{{ event.date }} {{ event.time }}</small>
+            </div>
+            <h2><a class="article-title" href="{{ url_for('events.event', event_id=event.id) }}">{{ event.title }}</a></h2>
+            <p class="article-content">{{ event.description }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
